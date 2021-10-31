@@ -1,6 +1,7 @@
-use std::fmt;
+// use std::fmt;
 use std::ops;
 
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Vec3 {
     e: [f32; 3],
 }
@@ -10,6 +11,30 @@ impl Vec3 {
         Vec3 {
             e: [e0, e1, e2]
         }
+    }
+
+    pub fn x(self) -> f32 {
+        self.e[0]
+    }
+
+    pub fn y(self) -> f32 {
+        self.e[1]
+    }
+
+    pub fn z(self) -> f32 {
+        self.e[2]
+    }
+
+    pub fn length(self) -> f32 {
+        (self.e[0] * self.e[0] + self.e[1] * self.e[1] + self.e[2] * self.e[2]).sqrt()
+    }
+
+    pub fn length_squared(self) -> f32 {
+        self.e[0] * self.e[0] + self.e[1] * self.e[1] + self.e[2] * self.e[2]
+    }
+
+    pub fn unit_vector(v: &Vec3) -> Vec3 {
+        *v / v.length()
     }
 }
 
@@ -54,6 +79,12 @@ impl ops::Div<f32> for Vec3 {
         }
     }
 }
+
+// impl fmt::Display for Vec3 {
+//     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+//         write!(f, "({}, {}, {})", self.e[0], self.e[1], self.e[2])
+//     }
+// }
 
 #[cfg(test)]
 mod tests {
