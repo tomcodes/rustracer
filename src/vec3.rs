@@ -46,3 +46,28 @@ impl fmt::Display for Vec3 {
         write!(f, "({}, {}, {})", self.e[0], self.e[1], self.e[2])
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_vec3_add() {
+
+    }
+
+    #[test]
+    fn test_vec3_sub() {
+
+    }
+
+    #[test]
+    fn test_vec3_mul() {
+
+    }
+
+    #[test]
+    fn test_vec3_div() {
+
+    }
+}
