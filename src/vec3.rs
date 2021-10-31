@@ -16,12 +16,26 @@ impl Vec3 {
 impl ops::Add for Vec3 {
     type Output = Self;
 
-    fn add(self, other: Self) -> Self {
+    fn add(self, rhs: Self) -> Self::Output {
         Vec3 {
             e: [
-                self.e[0] + other.e[0],
-                self.e[1] + other.e[1],
-                self.e[2] + other.e[2],
+                self.e[0] + rhs.e[0],
+                self.e[1] + rhs.e[1],
+                self.e[2] + rhs.e[2],
+            ]
+        }
+    }
+}
+
+impl ops::Mul<f32> for Vec3 {
+    type Output = Self;
+
+    fn mul(self, rhs: f32) -> Self::Output {
+        Vec3 {
+            e: [
+                self.e[0] * rhs,
+                self.e[1] * rhs,
+                self.e[2] * rhs,
             ]
         }
     }
