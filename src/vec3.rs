@@ -25,6 +25,18 @@ impl Vec3 {
         self.e[2]
     }
 
+    pub fn r(self) -> f32 {
+        self.e[0]
+    }
+
+    pub fn g(self) -> f32 {
+        self.e[1]
+    }
+
+    pub fn b(self) -> f32 {
+        self.e[2]
+    }
+
     pub fn length(self) -> f32 {
         (self.e[0] * self.e[0] + self.e[1] * self.e[1] + self.e[2] * self.e[2]).sqrt()
     }
