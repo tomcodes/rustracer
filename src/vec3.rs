@@ -1,5 +1,6 @@
 // use std::fmt;
 use std::ops;
+use std::ops::Sub;
 
 #[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Vec3 {
@@ -64,6 +65,20 @@ impl ops::Add for Vec3 {
     }
 }
 
+impl Sub for Vec3 {
+    type Output = Self;
+
+    fn sub(self, rhs: Self) -> Self::Output {
+        Vec3 {
+            e: [
+                self.e[0] - rhs.e[0],
+                self.e[1] - rhs.e[1],
+                self.e[2] - rhs.e[2],
+            ]
+        }
+    }
+}
+
 impl ops::Mul<f32> for Vec3 {
     type Output = Self;
 
@@ -117,7 +132,10 @@ mod tests {
 
     #[test]
     fn test_vec3_sub() {
-
+        assert_eq!(
+            Vec3::new(5.0, 9.0, 8.0) - Vec3::new(1.0, 2.0, 3.0),
+            Vec3::new(4.0, 7.0, 5.0)
+        );
     }
 
     #[test]
